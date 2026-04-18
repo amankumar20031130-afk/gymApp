@@ -1,0 +1,35 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0f13;
+  --surface: #1a1a23;
+  --surface2: #22222e;
+  --border: #2e2e3e;
+  --text: #e2e2f0;
+  --text-muted: #8888aa;
+  --accent: #ff4757;
+  --accent2: #ff6b81;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; box-sizing: border-box; }
+
+/* Prevent text/button size inflation on iOS */
+input, select, button { font-size: inherit; -webkit-appearance: none; }
+body { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+
+/* Smooth scrolling for the whole app */
+html { scroll-behavior: smooth; }
