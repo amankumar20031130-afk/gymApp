@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useAuth } from './contexts/AuthContext'
+import { useTheme } from './contexts/ThemeContext'
 import { fetchRoutines, saveDay } from './api/routines'
 import DaySelector from './components/DaySelector'
 import WorkoutPanel from './components/WorkoutPanel'
@@ -17,6 +18,7 @@ function getTodayName() {
 
 function AppShell() {
   const { user, logout } = useAuth()
+  const { theme, toggle } = useTheme()
   const [view, setView]           = useState('routines')
   const [authView, setAuthView]   = useState('login')
   const [selectedDay, setSelectedDay] = useState(getTodayName() || 'Monday')
@@ -108,6 +110,9 @@ function AppShell() {
           </button>
           <div className="nav-spacer" />
           <div className="user-menu">
+            <button className="btn-theme" onClick={toggle} title="Toggle theme" aria-label="Toggle theme">
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
             <span className="user-avatar">{user.name.charAt(0).toUpperCase()}</span>
             <span className="user-name">{user.name}</span>
             <button className="btn-logout" onClick={logout} title="Log out">↪ Logout</button>

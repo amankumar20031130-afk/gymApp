@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px 16px;
-  background: radial-gradient(ellipse at 60% 20%, rgba(255,71,87,0.12) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 60% 20%, var(--auth-glow) 0%, transparent 60%),
               var(--bg);
 }
 
@@ -253,6 +253,21 @@
   background: rgba(239,68,68,0.08);
 }
 
+.btn-theme {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, background 0.15s;
+  flex-shrink: 0;
+}
+.btn-theme:hover { transform: rotate(20deg) scale(1.1); background: var(--border); }
+
 
 /* ── Layout ── */
 .app {
@@ -262,10 +277,11 @@
 }
 
 .app-header {
-  background: linear-gradient(135deg, #1a1a23 0%, #0f0f13 100%);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
   padding: 22px 32px 0;
   text-align: center;
+  transition: background 0.25s ease;
 }
 
 .logo {
@@ -768,7 +784,7 @@
   gap: 12px;
   transition: background 0.15s;
 }
-.suggestions-toggle:hover { background: #26263a; }
+.suggestions-toggle:hover { background: var(--surface2); filter: brightness(0.95); }
 
 .suggestions-toggle-left {
   display: flex;
